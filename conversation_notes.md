@@ -136,3 +136,6 @@ Join strings using `+`
    
   ` + `only joins strings when both sides are strings NOT integers
     If you need to do this, use   `to_s` method
+    
+    test
+    test
