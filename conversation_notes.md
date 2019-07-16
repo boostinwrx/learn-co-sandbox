@@ -137,5 +137,8 @@ Join strings using `+`
   ` + `only joins strings when both sides are strings NOT integers
     If you need to do this, use   `to_s` method
     
+<<<<<<< HEAD
     test
     test
+=======
+>>>>>>> 7faa397f6f9964c57b437eff540348661a12d28e
