@@ -110,6 +110,7 @@ An example:
   `boolean_conditional_value ? "thing_to_return_if_true" : "thing_to_return_if_false" `
   
 ---------------------------------+
+
 *Working with strings*
 Strings are declared with double quotes or single quotes
   greeting = "Hello, folks!"
@@ -136,3 +137,74 @@ Join strings using `+`
    
   ` + `only joins strings when both sides are strings NOT integers
     If you need to do this, use   `to_s` method
+---------------------------------+
+*Statements*
+Expressions always return a value, Statements do NOT  
+
+nil means no value, means nothing, not true, not false, its the void
+
+`if result == 2`
+  `puts "things match"`
+`end` 
+
+Three categories of code Statements
+  -Sequence: What code runs in what order?
+  -Selection: Given the default order of the sequence, can we deviate from it under certain conditions?
+  -Repetition: Given a need to something until a something is true, or until something has happened a certain number of times, can we change the sequence to make something repeat before moving on?
+
+Selection statement
+  `favorite_number = 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2`
+`if favorite_number >= 10`
+  `favorite_number = favorite_number + 10`
+  `puts "And now your favorite_number is 10 more!"`
+`end`
+`puts "THE END"`
+
+Repitition statement
+  `favorite_number = 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2`
+  `10.times do`
+    `favorite_number = favorite_number + 1`
+  `end`
+  `puts "And now your favorite_number is 10 more! It is #{favorite_number}"`
+  
+---------------------------------+
+  *Puts and Prints Statements*
+Statements that print strings to the screen
+  -puts
+  -print
+  -p
+  
+puts out-puts-string to the screen, prints string you supply it as well as newline character
+  `puts "hi"`
+    hi
+    => nil
+  Put pushed nil to the next line, aka the 'newline' character appended at the end
+
+Print example:
+ `print "hi"`
+    hi => nil
+
+Force text to new line with newline, `\n`ewline at the end of string given to puts
+ `puts "edvard\nMuch"`
+   edvard
+   Much
+    => nil
+    
+Use `print` statement to print out the given string with no newline(`\n`)
+
+Use `p` statement to send content to screen and return a value instead of nil BUT its a more RAW version of an object, printing ""
+ ` p "Hello World"`
+ => "Hello World"
+ 
+---------------------------------+
+*Default sequence and comments*
+Using Selection statements, we make ruby skip over code if boolean evaluation is/is not true
+
+Using repitition statements, we make Ruby stay put on one line and do it over and over until some boolean evaluation is/is not true
+
+Only way to make ruby not see a line without a boolean evaluation is to hide it using comments
+`#This is a comment`
+
+---------------------------------+
+*if...end and statement modifiers*
+
