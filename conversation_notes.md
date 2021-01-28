@@ -207,4 +207,188 @@ Only way to make ruby not see a line without a boolean evaluation is to hide it 
 
 ---------------------------------+
 *if...end and statement modifiers*
+example
+  `chance_of_rain = 0.2`
+ ` if chance_of_rain <= 0.25`
+   ` puts "Pack a sun shelter!"`  
+  `elsif (chance_of_rain > 0.25 && chance_of_rain < 0.75)`
+   ` puts "Pack an umbrella!"`
+  `else`
+    `puts "Stay home and read Hegel."`
+  end
+In an if..elsif...else..statement
+  if true
+  elsif other options
+  else false
+  
+  ---------------------------------+
+*Variation on if...elsif...else: Case stat*
+Case Selection used to cut down on typing a repetitive if...elsif..else..end
+  `case name`
+  `when "Alice"` #translated: when name == Alice
+    `puts "Hello Alice!"`
+    `when "The White Rabbit"`
+   ` puts "Don't be late, White Rabbit"`
+    `when "The Mad Hatter"`
+     ` puts "Welcome to the tea party, Mad Hatter"`
+   ` when "The Queen of Hearts"`
+     `puts "Please don't chop off my head!"`
+   `else `
+   ` puts "Whoooo are you?"`
+  `end`
+How to build a case:
+1. Create value Case keyword followed by a value to test
+    `case greeting`
+2. Create the conditions
+    `case greeting`
+        `when`
+      `"unfriendly_greeting"`
+        `when`
+      `"friendly_greeting"`
+      `end`
+3. Add the code to define the behavior
+  `greeting="friendly behavior"`
+  `case greeting`
+        `when`
+      `"unfriendly_greeting"`
+          `puts "What do you want!?"`
+        `when`
+      `"friendly_greeting"`
+          `puts "Hi! How are  you?"`
+      `end`
 
+For simple values, use ternary. For an if with an else and maybe an elsif use an if. For multiple cases, use a case statement.
+
+---------------------------------+
+*Repetition of the While Statement*
+The reverse of selection is Repetition, while...do...end 
+
+Basic structure
+  `while (condition expression) do`
+  #stuff to do
+  `end`
+Infinite loop:
+  `while true do`
+    `puts "say this forever..."`
+  `end`
+    say this forever...
+    say this forever...
+    say this forever...
+    say this forever...
+    ...
+
+Terminate while...do...end Loop Naturally
+  `count = 0` # A bit of data defined outside the loop
+  `while count < 3 do` # A Boolean expression using the bit of data
+   ` puts "I am the #{count}, I love to count!"` # Work
+  `count = count + 1` # A bit of work that moves the bit of data closer to being false
+  `end`
+
+Shorthand
+  `count += 1` takes value of count, adds one,  then reassign the result to the count (`count = count +1`)
+
+Terminate Loop with break statement
+  `magic_exit_number =7`
+  `count = 0`
+  `while count < 10 do`
+    `break if count == magic_exit_number`
+    `puts "I am the #{count}, I love to count!"` # Work
+    `count = count + 1`
+  `end`
+
+---------------------------------+
+*Variations on the while...do...end Loop*
+Use integer.times to execute a loop n-times
+Example of some code running three times:
+ ` n = 2`
+  `count = 0`
+  `while count <= n do`
+    `puts "I ran."`
+    `count = count + 1` 
+  `end`
+  Another Example
+    `3.times do`
+      `puts "I ran."`
+    `end`
+    
+Use loop to create an infinite loop
+  `count = 0`
+ ` n = 3`
+ ` loop do`
+    `break if count >= n`
+   ` puts "I ran."`
+   ` count += 1`
+  `end`
+  This could be duplicated with while do end
+  `count = 0`
+ ` n = 3`
+  `while true do`
+    `break if count >= n`
+    `puts "I ran."`
+    `count += 1`
+  `end`
+
+Use until to repeat, until is the inverse of a while Loop
+  A while executes the block of code while the conditional expression is true.
+  
+  An until will execute a block until a specific condition is true.
+  `counter = 0`
+  `until counter == 20`
+    `puts "The current number is less than 20."`
+    `counter += 1`
+  `end`
+      -Counter starts at 0, if it is not true that the counter == 20 , the program will execute the code om the block
+      -In the block, we `puts` a phrase and increment the counter by 1
+      -Then program will go back to the top of the until loop, check if the counter is == 20, if thats not true, then the program will continue , if it does == 20 , it will break the loop
+      
+---------------------------------+
+*Defining Methods*
+Demonstrating Abstraction with Methods
+  Instead of:
+  `message = "Hello World!"`
+  `puts message`
+  `puts message`
+  `puts message`
+  `puts message`
+  `puts message`
+  We could use a method:
+  `def say_hello_world_five_times`
+    `message = "Hello World!"`
+    `puts message`
+    `puts message`
+   ` puts message`
+    `puts message`
+   ` puts message`
+  `end`
+
+DRY means "Dont Repeat Yourself"
+   "turns out the only significant predictor of fewer bugs is...fewer lines of code!"
+
+Structure of a Method:
+  `def say_hello_world`   #This is called the method signature, 'greeting'
+    `puts "Hello World!"` #Body or methods implementation, the code that runs
+  `end`
+    -The mame of a method should suggest what the method does, seperated by _ 
+    -Once you begin the method defiition w/ `def` keyword, all following lines until `end` keyword are methods body or implementation; which runs when method is called
+      TIP:A good practice is to define the method and then immediately close it with end before writing the body.
+    All this defines the method, it does not run it
+---------------------------------+
+*Methods and arguments*
+
+Method that accepts arguments
+  `def greeting_a_person(name)`
+    `"Hello" #{name}"`
+    `end`
+  Arguments that are passed into methods create new local variables that can be used within the scope of a method, we call these local variables: parameters.
+
+Method that accepts two arguments
+  `def greeting_programmer(name, language)`
+    `puts "Hello, #{name}. We heard you are a great #{language} programmer."`
+  `end`
+    The arity of this is two as it expects two arguments
+Difference between arguments and parameters:
+  `def greeting(parameter)`
+    `puts "Hello, #{parameter}!"`
+  `end`
+  
+  `greeting(argument)` when calling the method, its an argument
